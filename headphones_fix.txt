@@ -1,0 +1,20 @@
+places to look:
+- /usr/share/pulseaudio/alsa-mixer/paths/analog-output-headphones.conf
+
+[Element Speaker]
+switch = on
+volume = ignore
+
+- /etc/modprobe.d/alsa-base.conf
+
+(this is for dell xps 9550)
+
+options snd-pcsp index=-2
+alias snd-card-0 snd-hda-intel
+alias sound-slot-0 snd-hda-intel
+
+things to try:
+sudo alsa force-reload
+alsactl
+hdajackretask
+put laptop in suspend

@@ -1,0 +1,8 @@
+Remove /etc/systemd/user/default.target.wants if duplicate processes
+
+Grub file changes for thinkpad:
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash snd_intel_dspcfg.dsp_driver=3 acpi_backlight=native acpi_sleep=nonvs"
+GRUB_CMDLINE_LINUX=""

@@ -1,0 +1,20 @@
+for weird suspend issues (from jms in https://unix.stackexchange.com/questions/676846/how-do-i-disable-audio-sink-suspend-on-idle-using-wireplumber-in-fedora-35-so-th)
+
+add ~/.config/wireplumber/main.lua.d/51-alsa-custom.lua like so:
+
+rule = {
+  matches = {
+    {
+      { "node.nick", "matches", "ALC887-VD Analog" },
+    },
+  {
+      { "node.nick", "matches", "ALC887-VD Analog" },
+    },
+  },
+  apply_properties = {
+      ["session.suspend-timeout-seconds"] = 0
+  },
+}
+table.insert(alsa_monitor.rules,rule)
+
+where node.nicks come from pactl list sinks |grep node.nick
